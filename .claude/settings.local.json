@@ -6,7 +6,12 @@
       "Bash(npm run:*)",
       "Bash(git init:*)",
       "Bash(git add:*)",
-      "Bash(git commit -m 'feat: 웰컴맵 - 장애인 접근성 지도 앱 초기 구현:*)"
+      "Bash(git commit -m 'feat: 웰컴맵 - 장애인 접근성 지도 앱 초기 구현:*)",
+      "Bash(npx vercel:*)",
+      "Bash(git -C /Users/hyeinjeon/Documents/wellcome status)",
+      "Bash(git -C /Users/hyeinjeon/Documents/wellcome diff)",
+      "Bash(git -C /Users/hyeinjeon/Documents/wellcome add lib/sampleData.ts .claude/settings.local.json)",
+      "Bash(git -C /Users/hyeinjeon/Documents/wellcome commit -m ':*)"
     ]
   }
 }
