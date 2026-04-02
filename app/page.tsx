@@ -2,9 +2,10 @@
 
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
-import { useState, useMemo, useCallback } from 'react';
+import { useState, useMemo, useCallback, useEffect } from 'react';
 import { AccessibilityLocation, Filters, FilterKey, LocationType } from '@/lib/types';
 import { sampleLocations } from '@/lib/sampleData';
+import { fetchKakaoPlaces } from '@/lib/kakao';
 import FilterBar from '@/components/FilterBar';
 import LocationPanel from '@/components/LocationPanel';
 import { Search, X, MapPin } from 'lucide-react';
@@ -17,6 +18,8 @@ const Map = dynamic(() => import('@/components/Map'), {
     </div>
   ),
 });
+
+const KAKAO_TYPES: LocationType[] = ['restaurant', 'cafe', 'shopping'];
 
 const DEFAULT_FILTERS: Filters = {
   elevator: false,
@@ -38,6 +41,7 @@ function applyFilters(
       const q = search.toLowerCase();
       if (!loc.name.toLowerCase().includes(q) && !loc.address.toLowerCase().includes(q)) return false;
     }
+    if (loc.hasAccessibilityData === false) return true; // 카카오 데이터는 접근성 필터 미적용
     const a = loc.accessibility;
     if (filters.elevator && !a.elevator.available) return false;
     if (filters.voiceKiosk && !(a.kiosk.available && a.kiosk.voiceSupport)) return false;
@@ -54,15 +58,40 @@ export default function Home() {
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [showList, setShowList] = useState(false);
   const [typeFilter, setTypeFilter] = useState<LocationType | null>(null);
+  const [mapCenter, setMapCenter] = useState<{ lat: number; lng: number }>({ lat: 37.5665, lng: 126.978 });
+  const [kakaoPlaces, setKakaoPlaces] = useState<AccessibilityLocation[]>([]);
+  const [kakaoLoading, setKakaoLoading] = useState(false);
+
+  // 카카오 타입 선택 시 주변 장소 fetch
+  useEffect(() => {
+    if (!typeFilter || !KAKAO_TYPES.includes(typeFilter)) {
+      setKakaoPlaces([]);
+      return;
+    }
+    let cancelled = false;
+    setKakaoLoading(true);
+    fetchKakaoPlaces(typeFilter, mapCenter.lat, mapCenter.lng, 1000).then((places) => {
+      if (!cancelled) {
+        setKakaoPlaces(places);
+        setKakaoLoading(false);
+      }
+    });
+    return () => { cancelled = true; };
+  }, [typeFilter, mapCenter]);
+
+  const allLocations = useMemo(() => {
+    if (typeFilter && KAKAO_TYPES.includes(typeFilter)) return kakaoPlaces;
+    return sampleLocations;
+  }, [typeFilter, kakaoPlaces]);
 
   const filteredLocations = useMemo(
-    () => applyFilters(sampleLocations, filters, search, typeFilter),
-    [filters, search, typeFilter]
+    () => applyFilters(allLocations, filters, search, typeFilter),
+    [allLocations, filters, search, typeFilter]
   );
 
   const selectedLocation = useMemo(
-    () => filteredLocations.find((l) => l.id === selectedId) ?? null,
-    [filteredLocations, selectedId]
+    () => [...sampleLocations, ...kakaoPlaces].find((l) => l.id === selectedId) ?? null,
+    [kakaoPlaces, selectedId]
   );
 
   const handleFilterChange = useCallback((key: FilterKey) => {
@@ -72,6 +101,10 @@ export default function Home() {
   const handleSelect = useCallback((loc: AccessibilityLocation) => {
     setSelectedId(loc.id);
     setShowList(false);
+  }, []);
+
+  const handleMapMove = useCallback((center: { lat: number; lng: number }) => {
+    setMapCenter(center);
   }, []);
 
   const hasActiveFilters = Object.values(filters).some(Boolean) || search.length > 0;
@@ -125,6 +158,7 @@ export default function Home() {
         resultCount={filteredLocations.length}
         typeFilter={typeFilter}
         onTypeFilter={setTypeFilter}
+        kakaoLoading={kakaoLoading}
       />
 
       {/* 메인 콘텐츠 */}
@@ -135,6 +169,7 @@ export default function Home() {
           filters={filters}
           selectedId={selectedId}
           onSelect={handleSelect}
+          onMapMove={handleMapMove}
         />
 
         {/* 장소 목록 패널 */}
@@ -167,28 +202,24 @@ export default function Home() {
                         <div className="text-xs text-gray-400 truncate mt-0.5">{loc.address}</div>
                       </div>
                     </div>
-                    <div className="flex gap-1.5 mt-2 flex-wrap">
-                      {a.elevator.available && (
-                        <span className="text-xs bg-blue-50 text-blue-700 px-1.5 py-0.5 rounded-md">
-                          🛗 엘리베이터
-                        </span>
-                      )}
-                      {a.kiosk.voiceSupport && (
-                        <span className="text-xs bg-purple-50 text-purple-700 px-1.5 py-0.5 rounded-md">
-                          🔊 음성키오스크
-                        </span>
-                      )}
-                      {!a.steps.hasSteps && (
-                        <span className="text-xs bg-green-50 text-green-700 px-1.5 py-0.5 rounded-md">
-                          ✅ 무단차
-                        </span>
-                      )}
-                      {a.wheelchair.accessible === 'yes' && (
-                        <span className="text-xs bg-teal-50 text-teal-700 px-1.5 py-0.5 rounded-md">
-                          ♿ 휠체어
-                        </span>
-                      )}
-                    </div>
+                    {loc.hasAccessibilityData === false ? (
+                      <span className="text-xs text-gray-400 mt-1 inline-block">접근성 정보 없음</span>
+                    ) : (
+                      <div className="flex gap-1.5 mt-2 flex-wrap">
+                        {a.elevator.available && (
+                          <span className="text-xs bg-blue-50 text-blue-700 px-1.5 py-0.5 rounded-md">🛗 엘리베이터</span>
+                        )}
+                        {a.kiosk.voiceSupport && (
+                          <span className="text-xs bg-purple-50 text-purple-700 px-1.5 py-0.5 rounded-md">🔊 음성키오스크</span>
+                        )}
+                        {!a.steps.hasSteps && (
+                          <span className="text-xs bg-green-50 text-green-700 px-1.5 py-0.5 rounded-md">✅ 무단차</span>
+                        )}
+                        {a.wheelchair.accessible === 'yes' && (
+                          <span className="text-xs bg-teal-50 text-teal-700 px-1.5 py-0.5 rounded-md">♿ 휠체어</span>
+                        )}
+                      </div>
+                    )}
                   </button>
                 );
               })

@@ -12,6 +12,7 @@ interface Props {
   filters: Filters;
   selectedId: string | null;
   onSelect: (location: AccessibilityLocation) => void;
+  onMapMove?: (center: { lat: number; lng: number }) => void;
 }
 
 function getMarkerColor(loc: AccessibilityLocation): string {
@@ -45,7 +46,7 @@ function createMarkerIcon(color: string, isSelected: boolean): any {
   });
 }
 
-export default function Map({ locations, filters, selectedId, onSelect }: Props) {
+export default function Map({ locations, filters, selectedId, onSelect, onMapMove }: Props) {
   const mapRef = useRef<HTMLDivElement>(null);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const mapInstanceRef = useRef<any>(null);
@@ -85,8 +86,13 @@ export default function Map({ locations, filters, selectedId, onSelect }: Props)
 
     L.control.zoom({ position: 'bottomright' }).addTo(map);
 
+    map.on('moveend', () => {
+      const center = map.getCenter();
+      onMapMove?.({ lat: center.lat, lng: center.lng });
+    });
+
     mapInstanceRef.current = map;
-  }, [ready]);
+  }, [ready, onMapMove]);
 
   // 마커 업데이트
   useEffect(() => {

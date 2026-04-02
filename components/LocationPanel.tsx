@@ -56,6 +56,13 @@ export default function LocationPanel({ location, onClose }: Props) {
         </div>
       </div>
 
+      {/* 카카오 데이터 안내 */}
+      {location.hasAccessibilityData === false && (
+        <div className="mx-5 mt-4 p-3 bg-amber-50 border border-amber-200 rounded-xl text-xs text-amber-700">
+          카카오맵 데이터입니다. 접근성 정보가 아직 등록되지 않았습니다.
+        </div>
+      )}
+
       {/* 접근성 정보 */}
       <div className="px-5 py-4 space-y-3">
         {/* 엘리베이터 */}

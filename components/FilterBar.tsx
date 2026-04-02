@@ -8,6 +8,7 @@ interface Props {
   resultCount: number;
   typeFilter: LocationType | null;
   onTypeFilter: (type: LocationType | null) => void;
+  kakaoLoading?: boolean;
 }
 
 const TYPE_OPTIONS: { type: LocationType; label: string; icon: string }[] = [
@@ -29,7 +30,7 @@ const FILTER_OPTIONS: { key: FilterKey; label: string; icon: string; activeColor
   { key: 'accessibleToilet', label: '장애인 화장실', icon: '🚻', activeColor: 'bg-orange-500 text-white border-orange-500' },
 ];
 
-export default function FilterBar({ filters, onChange, resultCount, typeFilter, onTypeFilter }: Props) {
+export default function FilterBar({ filters, onChange, resultCount, typeFilter, onTypeFilter, kakaoLoading }: Props) {
   return (
     <div className="bg-white border-b border-gray-100 px-4 pt-2 pb-3">
       {/* 카테고리 탭 */}
@@ -70,7 +71,9 @@ export default function FilterBar({ filters, onChange, resultCount, typeFilter, 
             </button>
           );
         })}
-        <span className="ml-auto flex-shrink-0 self-center text-xs text-gray-400 pl-2">{resultCount}개</span>
+        <span className="ml-auto flex-shrink-0 self-center text-xs text-gray-400 pl-2">
+          {kakaoLoading ? '검색 중...' : `${resultCount}개`}
+        </span>
       </div>
     </div>
   );

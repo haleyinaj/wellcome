@@ -1,5 +1,5 @@
 export type WheelchairAccess = 'yes' | 'limited' | 'no' | 'unknown';
-export type DataSource = 'osm' | 'user' | 'official';
+export type DataSource = 'osm' | 'user' | 'official' | 'kakao';
 export type LocationType =
   | 'subway'
   | 'building'
@@ -46,6 +46,9 @@ export interface AccessibilityLocation {
   };
   lastUpdated: string;
   source: DataSource;
+  hasAccessibilityData?: boolean;
+  phone?: string;
+  placeUrl?: string;
 }
 
 export type FilterKey = 'elevator' | 'voiceKiosk' | 'noSteps' | 'wheelchair' | 'accessibleToilet';
