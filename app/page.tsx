@@ -1,6 +1,7 @@
 'use client';
 
 import dynamic from 'next/dynamic';
+import Image from 'next/image';
 import { useState, useMemo, useCallback } from 'react';
 import { AccessibilityLocation, Filters, FilterKey } from '@/lib/types';
 import { sampleLocations } from '@/lib/sampleData';
@@ -77,9 +78,7 @@ export default function Home() {
       {/* 헤더 */}
       <header className="bg-white border-b border-gray-100 px-4 py-3 flex items-center gap-3 shadow-sm z-10">
         <div className="flex items-center gap-2">
-          <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">
-            <span className="text-white text-sm">♿</span>
-          </div>
+          <Image src="/logo.png" alt="웰컴맵 로고" width={32} height={32} className="rounded-lg flex-shrink-0" />
           <div>
             <h1 className="text-base font-bold text-gray-900 leading-none">웰컴맵</h1>
             <p className="text-xs text-gray-400 leading-none mt-0.5">모두를 위한 접근성 지도</p>
