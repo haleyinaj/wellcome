@@ -13,6 +13,7 @@ const TYPE_LABELS: Record<string, string> = {
   subway: '지하철역',
   building: '건물',
   restaurant: '음식점',
+  cafe: '카페',
   hospital: '병원',
   shopping: '쇼핑',
   public: '공공시설',

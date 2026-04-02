@@ -4,6 +4,7 @@ export type LocationType =
   | 'subway'
   | 'building'
   | 'restaurant'
+  | 'cafe'
   | 'hospital'
   | 'shopping'
   | 'public'
