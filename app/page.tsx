@@ -103,7 +103,8 @@ export default function Home() {
       return [...sampleMatched.filter((l) => !kakaoIds.has(l.id)), ...kakaoSearchPlaces];
     }
     if (typeFilter && KAKAO_TYPES.includes(typeFilter)) return kakaoPlaces;
-    return sampleLocations;
+    if (typeFilter) return sampleLocations;
+    return []; // 초기 상태: 핀 없음
   }, [search, typeFilter, kakaoPlaces, kakaoSearchPlaces]);
 
   const filteredLocations = useMemo(
