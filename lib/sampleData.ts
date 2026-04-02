@@ -3266,7 +3266,7 @@ export const sampleLocations: AccessibilityLocation[] = [
     address: '서울특별시 마포구 와우산로 29',
     accessibility: {
       elevator: { available: false },
-      kiosk: { available: false },
+      kiosk: { available: false, voiceSupport: false },
       steps: { hasSteps: true, maxHeightCm: 8, ramp: false, note: '입구 계단 1단(약 8cm), 경사로 없음' },
       wheelchair: { accessible: 'limited', note: '입구 단차로 휠체어 단독 진입 어려움' },
       toilet: { available: true, accessible: false },
@@ -3303,7 +3303,7 @@ export const sampleLocations: AccessibilityLocation[] = [
       kiosk: { available: true, voiceSupport: false, note: '무인 주문 키오스크 운영' },
       steps: { hasSteps: false, ramp: false, note: '지면과 동일한 높이, 경사로 불필요' },
       wheelchair: { accessible: 'yes' },
-      toilet: { available: false },
+      toilet: { available: false, accessible: false },
     },
     lastUpdated: '2024-08-14',
     source: 'user',
@@ -3334,7 +3334,7 @@ export const sampleLocations: AccessibilityLocation[] = [
     address: '서울특별시 성동구 아차산로 9길 19',
     accessibility: {
       elevator: { available: false },
-      kiosk: { available: false, note: '카운터 직접 주문' },
+      kiosk: { available: false, voiceSupport: false, note: '카운터 직접 주문' },
       steps: { hasSteps: false, ramp: true },
       wheelchair: { accessible: 'yes', note: '넓은 내부 공간, 휠체어 이동 편리' },
       toilet: { available: true, accessible: true },
@@ -3353,7 +3353,7 @@ export const sampleLocations: AccessibilityLocation[] = [
     address: '서울특별시 중구 명동10길 29',
     accessibility: {
       elevator: { available: false },
-      kiosk: { available: false },
+      kiosk: { available: false, voiceSupport: false },
       steps: { hasSteps: true, maxHeightCm: 10, ramp: false, note: '입구 계단 1단, 경사로 없음' },
       wheelchair: { accessible: 'limited', note: '내부 테이블 간격 좁음' },
       toilet: { available: true, accessible: false },
@@ -3370,7 +3370,7 @@ export const sampleLocations: AccessibilityLocation[] = [
     address: '서울특별시 종로구 인사동5길 26',
     accessibility: {
       elevator: { available: false },
-      kiosk: { available: false },
+      kiosk: { available: false, voiceSupport: false },
       steps: { hasSteps: false, ramp: false },
       wheelchair: { accessible: 'yes', note: '1층 홀 진입 단차 없음' },
       toilet: { available: true, accessible: false },
@@ -3421,7 +3421,7 @@ export const sampleLocations: AccessibilityLocation[] = [
     address: '서울특별시 마포구 마포대로 109',
     accessibility: {
       elevator: { available: false },
-      kiosk: { available: false },
+      kiosk: { available: false, voiceSupport: false },
       steps: { hasSteps: true, maxHeightCm: 15, ramp: false, note: '반지하 구조, 계단 3단' },
       wheelchair: { accessible: 'no', note: '계단으로만 진입 가능' },
       toilet: { available: true, accessible: false },
@@ -3457,7 +3457,7 @@ export const sampleLocations: AccessibilityLocation[] = [
     address: '서울특별시 중구 퇴계로 138',
     accessibility: {
       elevator: { available: false },
-      kiosk: { available: false },
+      kiosk: { available: false, voiceSupport: false },
       steps: { hasSteps: false, ramp: true },
       wheelchair: { accessible: 'yes' },
       toilet: { available: true, accessible: true },
@@ -3474,7 +3474,7 @@ export const sampleLocations: AccessibilityLocation[] = [
     address: '서울특별시 중구 을지로 18길 23',
     accessibility: {
       elevator: { available: false },
-      kiosk: { available: false },
+      kiosk: { available: false, voiceSupport: false },
       steps: { hasSteps: true, maxHeightCm: 10, ramp: false, note: '입구 계단 2단' },
       wheelchair: { accessible: 'no' },
       toilet: { available: true, accessible: false },
@@ -3491,7 +3491,7 @@ export const sampleLocations: AccessibilityLocation[] = [
     address: '서울특별시 종로구 새문안로 92',
     accessibility: {
       elevator: { available: true, floors: 'B1~4F' },
-      kiosk: { available: false },
+      kiosk: { available: false, voiceSupport: false },
       steps: { hasSteps: false, ramp: true },
       wheelchair: { accessible: 'yes' },
       toilet: { available: true, accessible: true },
@@ -3508,7 +3508,7 @@ export const sampleLocations: AccessibilityLocation[] = [
     address: '서울특별시 종로구 삼청로 101',
     accessibility: {
       elevator: { available: false },
-      kiosk: { available: false },
+      kiosk: { available: false, voiceSupport: false },
       steps: { hasSteps: true, maxHeightCm: 5, ramp: false },
       wheelchair: { accessible: 'limited' },
       toilet: { available: true, accessible: false },
@@ -3525,7 +3525,7 @@ export const sampleLocations: AccessibilityLocation[] = [
     address: '서울특별시 종로구 인사동길 44',
     accessibility: {
       elevator: { available: true, floors: '1F~4F' },
-      kiosk: { available: false },
+      kiosk: { available: false, voiceSupport: false },
       steps: { hasSteps: false, ramp: true },
       wheelchair: { accessible: 'yes' },
       toilet: { available: true, accessible: true },
@@ -3542,7 +3542,7 @@ export const sampleLocations: AccessibilityLocation[] = [
     address: '서울특별시 강남구 압구정로 50길 8',
     accessibility: {
       elevator: { available: false },
-      kiosk: { available: false },
+      kiosk: { available: false, voiceSupport: false },
       steps: { hasSteps: false, ramp: true },
       wheelchair: { accessible: 'yes', note: '넓은 홀, 이동 편리' },
       toilet: { available: true, accessible: true },
@@ -3559,7 +3559,7 @@ export const sampleLocations: AccessibilityLocation[] = [
     address: '서울특별시 강남구 가로수길 23',
     accessibility: {
       elevator: { available: false },
-      kiosk: { available: false },
+      kiosk: { available: false, voiceSupport: false },
       steps: { hasSteps: true, maxHeightCm: 12, ramp: false, note: '지하 1층 구조, 계단 이용' },
       wheelchair: { accessible: 'no' },
       toilet: { available: true, accessible: false },
@@ -3576,7 +3576,7 @@ export const sampleLocations: AccessibilityLocation[] = [
     address: '서울특별시 강남구 테헤란로 84',
     accessibility: {
       elevator: { available: false },
-      kiosk: { available: false },
+      kiosk: { available: false, voiceSupport: false },
       steps: { hasSteps: false, ramp: false },
       wheelchair: { accessible: 'yes' },
       toilet: { available: true, accessible: false },
@@ -3593,7 +3593,7 @@ export const sampleLocations: AccessibilityLocation[] = [
     address: '서울특별시 강남구 선릉로 433',
     accessibility: {
       elevator: { available: true, floors: 'B1~3F' },
-      kiosk: { available: false },
+      kiosk: { available: false, voiceSupport: false },
       steps: { hasSteps: false, ramp: true },
       wheelchair: { accessible: 'yes' },
       toilet: { available: true, accessible: true },
@@ -3627,7 +3627,7 @@ export const sampleLocations: AccessibilityLocation[] = [
     address: '서울특별시 마포구 어울마당로 62',
     accessibility: {
       elevator: { available: false },
-      kiosk: { available: false },
+      kiosk: { available: false, voiceSupport: false },
       steps: { hasSteps: true, maxHeightCm: 8, ramp: false },
       wheelchair: { accessible: 'limited' },
       toilet: { available: true, accessible: false },
@@ -3644,7 +3644,7 @@ export const sampleLocations: AccessibilityLocation[] = [
     address: '서울특별시 마포구 연남로 45',
     accessibility: {
       elevator: { available: false },
-      kiosk: { available: false },
+      kiosk: { available: false, voiceSupport: false },
       steps: { hasSteps: false, ramp: false },
       wheelchair: { accessible: 'yes' },
       toilet: { available: true, accessible: false },
@@ -3661,7 +3661,7 @@ export const sampleLocations: AccessibilityLocation[] = [
     address: '서울특별시 마포구 망원로 58',
     accessibility: {
       elevator: { available: false },
-      kiosk: { available: false },
+      kiosk: { available: false, voiceSupport: false },
       steps: { hasSteps: false, ramp: false },
       wheelchair: { accessible: 'yes' },
       toilet: { available: true, accessible: false },
@@ -3681,7 +3681,7 @@ export const sampleLocations: AccessibilityLocation[] = [
       kiosk: { available: true, voiceSupport: false },
       steps: { hasSteps: false, ramp: false },
       wheelchair: { accessible: 'yes' },
-      toilet: { available: false },
+      toilet: { available: false, accessible: false },
     },
     lastUpdated: '2024-10-05',
     source: 'user',
@@ -3712,7 +3712,7 @@ export const sampleLocations: AccessibilityLocation[] = [
     address: '서울특별시 용산구 회나무로 16',
     accessibility: {
       elevator: { available: false },
-      kiosk: { available: false },
+      kiosk: { available: false, voiceSupport: false },
       steps: { hasSteps: true, maxHeightCm: 7, ramp: false },
       wheelchair: { accessible: 'limited' },
       toilet: { available: true, accessible: false },
@@ -3729,7 +3729,7 @@ export const sampleLocations: AccessibilityLocation[] = [
     address: '서울특별시 용산구 이태원로55길 30',
     accessibility: {
       elevator: { available: false },
-      kiosk: { available: false },
+      kiosk: { available: false, voiceSupport: false },
       steps: { hasSteps: false, ramp: true },
       wheelchair: { accessible: 'yes' },
       toilet: { available: true, accessible: false },
@@ -3746,7 +3746,7 @@ export const sampleLocations: AccessibilityLocation[] = [
     address: '서울특별시 용산구 한강대로 426',
     accessibility: {
       elevator: { available: true, floors: 'B1~3F' },
-      kiosk: { available: false },
+      kiosk: { available: false, voiceSupport: false },
       steps: { hasSteps: false, ramp: true },
       wheelchair: { accessible: 'yes' },
       toilet: { available: true, accessible: true },
@@ -3763,7 +3763,7 @@ export const sampleLocations: AccessibilityLocation[] = [
     address: '서울특별시 용산구 이촌로 245',
     accessibility: {
       elevator: { available: false },
-      kiosk: { available: false },
+      kiosk: { available: false, voiceSupport: false },
       steps: { hasSteps: true, maxHeightCm: 6, ramp: true },
       wheelchair: { accessible: 'limited' },
       toilet: { available: true, accessible: false },
@@ -3797,7 +3797,7 @@ export const sampleLocations: AccessibilityLocation[] = [
     address: '서울특별시 성동구 뚝섬로 277',
     accessibility: {
       elevator: { available: false },
-      kiosk: { available: false },
+      kiosk: { available: false, voiceSupport: false },
       steps: { hasSteps: false, ramp: false },
       wheelchair: { accessible: 'yes' },
       toilet: { available: true, accessible: false },
@@ -3814,7 +3814,7 @@ export const sampleLocations: AccessibilityLocation[] = [
     address: '서울특별시 성동구 왕십리로 39',
     accessibility: {
       elevator: { available: false },
-      kiosk: { available: false },
+      kiosk: { available: false, voiceSupport: false },
       steps: { hasSteps: true, maxHeightCm: 5, ramp: false },
       wheelchair: { accessible: 'limited' },
       toilet: { available: true, accessible: false },
@@ -3831,7 +3831,7 @@ export const sampleLocations: AccessibilityLocation[] = [
     address: '서울특별시 성동구 뚝섬로 273',
     accessibility: {
       elevator: { available: false },
-      kiosk: { available: false },
+      kiosk: { available: false, voiceSupport: false },
       steps: { hasSteps: false, ramp: true },
       wheelchair: { accessible: 'yes' },
       toilet: { available: true, accessible: true },
@@ -3848,7 +3848,7 @@ export const sampleLocations: AccessibilityLocation[] = [
     address: '서울특별시 광진구 능동로 7길 19',
     accessibility: {
       elevator: { available: false },
-      kiosk: { available: false },
+      kiosk: { available: false, voiceSupport: false },
       steps: { hasSteps: true, maxHeightCm: 8, ramp: false },
       wheelchair: { accessible: 'limited' },
       toilet: { available: true, accessible: false },
@@ -3865,7 +3865,7 @@ export const sampleLocations: AccessibilityLocation[] = [
     address: '서울특별시 광진구 군자로 112',
     accessibility: {
       elevator: { available: false },
-      kiosk: { available: false },
+      kiosk: { available: false, voiceSupport: false },
       steps: { hasSteps: false, ramp: false },
       wheelchair: { accessible: 'yes' },
       toilet: { available: true, accessible: false },
@@ -3899,7 +3899,7 @@ export const sampleLocations: AccessibilityLocation[] = [
     address: '서울특별시 송파구 백제고분로 168',
     accessibility: {
       elevator: { available: false },
-      kiosk: { available: false },
+      kiosk: { available: false, voiceSupport: false },
       steps: { hasSteps: false, ramp: false },
       wheelchair: { accessible: 'yes' },
       toilet: { available: true, accessible: false },
@@ -3916,7 +3916,7 @@ export const sampleLocations: AccessibilityLocation[] = [
     address: '서울특별시 송파구 방이동 43-3',
     accessibility: {
       elevator: { available: false },
-      kiosk: { available: false },
+      kiosk: { available: false, voiceSupport: false },
       steps: { hasSteps: true, maxHeightCm: 5, ramp: false },
       wheelchair: { accessible: 'limited' },
       toilet: { available: true, accessible: false },
@@ -3933,7 +3933,7 @@ export const sampleLocations: AccessibilityLocation[] = [
     address: '서울특별시 송파구 양재대로 932',
     accessibility: {
       elevator: { available: false },
-      kiosk: { available: false },
+      kiosk: { available: false, voiceSupport: false },
       steps: { hasSteps: false, ramp: true },
       wheelchair: { accessible: 'yes' },
       toilet: { available: true, accessible: false },
@@ -3950,7 +3950,7 @@ export const sampleLocations: AccessibilityLocation[] = [
     address: '서울특별시 강남구 광평로 280',
     accessibility: {
       elevator: { available: false },
-      kiosk: { available: false },
+      kiosk: { available: false, voiceSupport: false },
       steps: { hasSteps: false, ramp: false },
       wheelchair: { accessible: 'yes' },
       toilet: { available: true, accessible: false },
@@ -3967,7 +3967,7 @@ export const sampleLocations: AccessibilityLocation[] = [
     address: '서울특별시 노원구 동일로 1562',
     accessibility: {
       elevator: { available: false },
-      kiosk: { available: false },
+      kiosk: { available: false, voiceSupport: false },
       steps: { hasSteps: false, ramp: false },
       wheelchair: { accessible: 'yes' },
       toilet: { available: true, accessible: false },
@@ -3984,7 +3984,7 @@ export const sampleLocations: AccessibilityLocation[] = [
     address: '서울특별시 노원구 중계로 121',
     accessibility: {
       elevator: { available: false },
-      kiosk: { available: false },
+      kiosk: { available: false, voiceSupport: false },
       steps: { hasSteps: true, maxHeightCm: 10, ramp: false },
       wheelchair: { accessible: 'no' },
       toilet: { available: true, accessible: false },
@@ -4001,7 +4001,7 @@ export const sampleLocations: AccessibilityLocation[] = [
     address: '서울특별시 도봉구 도봉산길 86',
     accessibility: {
       elevator: { available: false },
-      kiosk: { available: false },
+      kiosk: { available: false, voiceSupport: false },
       steps: { hasSteps: true, maxHeightCm: 20, ramp: false, note: '산 초입 위치, 계단 다수' },
       wheelchair: { accessible: 'no' },
       toilet: { available: true, accessible: false },
@@ -4018,7 +4018,7 @@ export const sampleLocations: AccessibilityLocation[] = [
     address: '서울특별시 도봉구 마들로 932',
     accessibility: {
       elevator: { available: false },
-      kiosk: { available: false },
+      kiosk: { available: false, voiceSupport: false },
       steps: { hasSteps: false, ramp: false },
       wheelchair: { accessible: 'yes' },
       toilet: { available: true, accessible: false },
@@ -4035,7 +4035,7 @@ export const sampleLocations: AccessibilityLocation[] = [
     address: '서울특별시 강북구 미아로 100',
     accessibility: {
       elevator: { available: false },
-      kiosk: { available: false },
+      kiosk: { available: false, voiceSupport: false },
       steps: { hasSteps: false, ramp: false },
       wheelchair: { accessible: 'yes' },
       toilet: { available: true, accessible: false },
@@ -4052,7 +4052,7 @@ export const sampleLocations: AccessibilityLocation[] = [
     address: '서울특별시 강북구 수유로 210',
     accessibility: {
       elevator: { available: false },
-      kiosk: { available: false },
+      kiosk: { available: false, voiceSupport: false },
       steps: { hasSteps: true, maxHeightCm: 7, ramp: false },
       wheelchair: { accessible: 'limited' },
       toilet: { available: true, accessible: false },
@@ -4069,7 +4069,7 @@ export const sampleLocations: AccessibilityLocation[] = [
     address: '서울특별시 은평구 불광로 36',
     accessibility: {
       elevator: { available: false },
-      kiosk: { available: false },
+      kiosk: { available: false, voiceSupport: false },
       steps: { hasSteps: false, ramp: false },
       wheelchair: { accessible: 'yes' },
       toilet: { available: true, accessible: false },
@@ -4103,7 +4103,7 @@ export const sampleLocations: AccessibilityLocation[] = [
     address: '서울특별시 은평구 증산로 36',
     accessibility: {
       elevator: { available: false },
-      kiosk: { available: false },
+      kiosk: { available: false, voiceSupport: false },
       steps: { hasSteps: true, maxHeightCm: 8, ramp: false },
       wheelchair: { accessible: 'no' },
       toilet: { available: true, accessible: false },
@@ -4120,7 +4120,7 @@ export const sampleLocations: AccessibilityLocation[] = [
     address: '서울특별시 서대문구 충정로 50',
     accessibility: {
       elevator: { available: false },
-      kiosk: { available: false },
+      kiosk: { available: false, voiceSupport: false },
       steps: { hasSteps: false, ramp: false },
       wheelchair: { accessible: 'yes' },
       toilet: { available: true, accessible: false },
@@ -4137,7 +4137,7 @@ export const sampleLocations: AccessibilityLocation[] = [
     address: '서울특별시 서대문구 이화여대길 20',
     accessibility: {
       elevator: { available: false },
-      kiosk: { available: false },
+      kiosk: { available: false, voiceSupport: false },
       steps: { hasSteps: true, maxHeightCm: 6, ramp: false },
       wheelchair: { accessible: 'limited' },
       toilet: { available: true, accessible: false },
@@ -4154,7 +4154,7 @@ export const sampleLocations: AccessibilityLocation[] = [
     address: '서울특별시 마포구 아현로 56',
     accessibility: {
       elevator: { available: false },
-      kiosk: { available: false },
+      kiosk: { available: false, voiceSupport: false },
       steps: { hasSteps: false, ramp: false },
       wheelchair: { accessible: 'yes' },
       toilet: { available: true, accessible: false },
@@ -4171,7 +4171,7 @@ export const sampleLocations: AccessibilityLocation[] = [
     address: '서울특별시 마포구 공덕로 96',
     accessibility: {
       elevator: { available: false },
-      kiosk: { available: false },
+      kiosk: { available: false, voiceSupport: false },
       steps: { hasSteps: false, ramp: true },
       wheelchair: { accessible: 'yes' },
       toilet: { available: true, accessible: false },
@@ -4188,7 +4188,7 @@ export const sampleLocations: AccessibilityLocation[] = [
     address: '서울특별시 마포구 마포대로 68',
     accessibility: {
       elevator: { available: false },
-      kiosk: { available: false },
+      kiosk: { available: false, voiceSupport: false },
       steps: { hasSteps: false, ramp: false },
       wheelchair: { accessible: 'yes' },
       toilet: { available: true, accessible: false },
@@ -4205,7 +4205,7 @@ export const sampleLocations: AccessibilityLocation[] = [
     address: '서울특별시 영등포구 국제금융로 10 IFC몰',
     accessibility: {
       elevator: { available: true, floors: 'B3~3F' },
-      kiosk: { available: false },
+      kiosk: { available: false, voiceSupport: false },
       steps: { hasSteps: false, ramp: true },
       wheelchair: { accessible: 'yes' },
       toilet: { available: true, accessible: true },
@@ -4239,7 +4239,7 @@ export const sampleLocations: AccessibilityLocation[] = [
     address: '서울특별시 영등포구 신길로 92',
     accessibility: {
       elevator: { available: false },
-      kiosk: { available: false },
+      kiosk: { available: false, voiceSupport: false },
       steps: { hasSteps: true, maxHeightCm: 5, ramp: false },
       wheelchair: { accessible: 'limited' },
       toilet: { available: true, accessible: false },
@@ -4256,7 +4256,7 @@ export const sampleLocations: AccessibilityLocation[] = [
     address: '서울특별시 영등포구 대림로 175',
     accessibility: {
       elevator: { available: false },
-      kiosk: { available: false },
+      kiosk: { available: false, voiceSupport: false },
       steps: { hasSteps: false, ramp: false },
       wheelchair: { accessible: 'yes' },
       toilet: { available: true, accessible: false },
@@ -4273,7 +4273,7 @@ export const sampleLocations: AccessibilityLocation[] = [
     address: '서울특별시 구로구 디지털로 288',
     accessibility: {
       elevator: { available: false },
-      kiosk: { available: false },
+      kiosk: { available: false, voiceSupport: false },
       steps: { hasSteps: false, ramp: false },
       wheelchair: { accessible: 'yes' },
       toilet: { available: true, accessible: false },
@@ -4307,7 +4307,7 @@ export const sampleLocations: AccessibilityLocation[] = [
     address: '서울특별시 금천구 시흥대로 136',
     accessibility: {
       elevator: { available: false },
-      kiosk: { available: false },
+      kiosk: { available: false, voiceSupport: false },
       steps: { hasSteps: false, ramp: false },
       wheelchair: { accessible: 'yes' },
       toilet: { available: true, accessible: false },
@@ -4324,7 +4324,7 @@ export const sampleLocations: AccessibilityLocation[] = [
     address: '서울특별시 금천구 독산로 250',
     accessibility: {
       elevator: { available: false },
-      kiosk: { available: false },
+      kiosk: { available: false, voiceSupport: false },
       steps: { hasSteps: true, maxHeightCm: 4, ramp: true },
       wheelchair: { accessible: 'limited' },
       toilet: { available: true, accessible: false },
@@ -4341,7 +4341,7 @@ export const sampleLocations: AccessibilityLocation[] = [
     address: '서울특별시 동작구 흑석로 84',
     accessibility: {
       elevator: { available: false },
-      kiosk: { available: false },
+      kiosk: { available: false, voiceSupport: false },
       steps: { hasSteps: false, ramp: false },
       wheelchair: { accessible: 'yes' },
       toilet: { available: true, accessible: false },
@@ -4358,7 +4358,7 @@ export const sampleLocations: AccessibilityLocation[] = [
     address: '서울특별시 동작구 사당로 201',
     accessibility: {
       elevator: { available: false },
-      kiosk: { available: false },
+      kiosk: { available: false, voiceSupport: false },
       steps: { hasSteps: true, maxHeightCm: 8, ramp: false },
       wheelchair: { accessible: 'no' },
       toilet: { available: true, accessible: false },
@@ -4375,7 +4375,7 @@ export const sampleLocations: AccessibilityLocation[] = [
     address: '서울특별시 서초구 방배로 134',
     accessibility: {
       elevator: { available: false },
-      kiosk: { available: false },
+      kiosk: { available: false, voiceSupport: false },
       steps: { hasSteps: false, ramp: true },
       wheelchair: { accessible: 'yes' },
       toilet: { available: true, accessible: false },
@@ -4392,7 +4392,7 @@ export const sampleLocations: AccessibilityLocation[] = [
     address: '서울특별시 서초구 서초대로 219',
     accessibility: {
       elevator: { available: false },
-      kiosk: { available: false },
+      kiosk: { available: false, voiceSupport: false },
       steps: { hasSteps: false, ramp: false },
       wheelchair: { accessible: 'yes' },
       toilet: { available: true, accessible: true },
@@ -4409,7 +4409,7 @@ export const sampleLocations: AccessibilityLocation[] = [
     address: '서울특별시 서초구 강남대로 27',
     accessibility: {
       elevator: { available: false },
-      kiosk: { available: false },
+      kiosk: { available: false, voiceSupport: false },
       steps: { hasSteps: false, ramp: false },
       wheelchair: { accessible: 'yes' },
       toilet: { available: true, accessible: false },
@@ -4426,7 +4426,7 @@ export const sampleLocations: AccessibilityLocation[] = [
     address: '서울특별시 서초구 신반포로 194',
     accessibility: {
       elevator: { available: true, floors: 'B1~B3' },
-      kiosk: { available: false },
+      kiosk: { available: false, voiceSupport: false },
       steps: { hasSteps: false, ramp: true },
       wheelchair: { accessible: 'yes' },
       toilet: { available: true, accessible: true },
@@ -4443,7 +4443,7 @@ export const sampleLocations: AccessibilityLocation[] = [
     address: '서울특별시 서초구 강남대로 925',
     accessibility: {
       elevator: { available: true, floors: '1F~20F' },
-      kiosk: { available: false },
+      kiosk: { available: false, voiceSupport: false },
       steps: { hasSteps: false, ramp: true },
       wheelchair: { accessible: 'yes' },
       toilet: { available: true, accessible: true },
@@ -4460,7 +4460,7 @@ export const sampleLocations: AccessibilityLocation[] = [
     address: '서울특별시 강남구 학동로 343',
     accessibility: {
       elevator: { available: false },
-      kiosk: { available: false },
+      kiosk: { available: false, voiceSupport: false },
       steps: { hasSteps: false, ramp: false },
       wheelchair: { accessible: 'yes' },
       toilet: { available: true, accessible: false },
@@ -4477,7 +4477,7 @@ export const sampleLocations: AccessibilityLocation[] = [
     address: '서울특별시 강남구 도곡로 178',
     accessibility: {
       elevator: { available: false },
-      kiosk: { available: false },
+      kiosk: { available: false, voiceSupport: false },
       steps: { hasSteps: false, ramp: true },
       wheelchair: { accessible: 'yes' },
       toilet: { available: true, accessible: false },
@@ -4494,7 +4494,7 @@ export const sampleLocations: AccessibilityLocation[] = [
     address: '서울특별시 강남구 개포로 617',
     accessibility: {
       elevator: { available: false },
-      kiosk: { available: false },
+      kiosk: { available: false, voiceSupport: false },
       steps: { hasSteps: true, maxHeightCm: 10, ramp: false },
       wheelchair: { accessible: 'no' },
       toilet: { available: true, accessible: false },
@@ -4511,7 +4511,7 @@ export const sampleLocations: AccessibilityLocation[] = [
     address: '서울특별시 강남구 남부순환로 2940',
     accessibility: {
       elevator: { available: false },
-      kiosk: { available: false },
+      kiosk: { available: false, voiceSupport: false },
       steps: { hasSteps: false, ramp: false },
       wheelchair: { accessible: 'yes' },
       toilet: { available: true, accessible: false },
@@ -4545,7 +4545,7 @@ export const sampleLocations: AccessibilityLocation[] = [
     address: '서울특별시 강동구 강일로 100',
     accessibility: {
       elevator: { available: false },
-      kiosk: { available: false },
+      kiosk: { available: false, voiceSupport: false },
       steps: { hasSteps: false, ramp: true },
       wheelchair: { accessible: 'yes' },
       toilet: { available: true, accessible: true },
@@ -4562,7 +4562,7 @@ export const sampleLocations: AccessibilityLocation[] = [
     address: '서울특별시 강동구 올림픽로 875',
     accessibility: {
       elevator: { available: false },
-      kiosk: { available: false },
+      kiosk: { available: false, voiceSupport: false },
       steps: { hasSteps: false, ramp: false },
       wheelchair: { accessible: 'yes' },
       toilet: { available: true, accessible: false },
@@ -4579,7 +4579,7 @@ export const sampleLocations: AccessibilityLocation[] = [
     address: '서울특별시 중랑구 동일로 910',
     accessibility: {
       elevator: { available: false },
-      kiosk: { available: false },
+      kiosk: { available: false, voiceSupport: false },
       steps: { hasSteps: false, ramp: false },
       wheelchair: { accessible: 'yes' },
       toilet: { available: true, accessible: false },
@@ -4596,7 +4596,7 @@ export const sampleLocations: AccessibilityLocation[] = [
     address: '서울특별시 중랑구 면목로 83',
     accessibility: {
       elevator: { available: false },
-      kiosk: { available: false },
+      kiosk: { available: false, voiceSupport: false },
       steps: { hasSteps: true, maxHeightCm: 5, ramp: false },
       wheelchair: { accessible: 'limited' },
       toilet: { available: true, accessible: false },
@@ -4613,7 +4613,7 @@ export const sampleLocations: AccessibilityLocation[] = [
     address: '서울특별시 중구 을지로6가 18-3',
     accessibility: {
       elevator: { available: false },
-      kiosk: { available: false },
+      kiosk: { available: false, voiceSupport: false },
       steps: { hasSteps: true, maxHeightCm: 8, ramp: false },
       wheelchair: { accessible: 'no' },
       toilet: { available: true, accessible: false },
@@ -4630,7 +4630,7 @@ export const sampleLocations: AccessibilityLocation[] = [
     address: '서울특별시 중구 황학로 12',
     accessibility: {
       elevator: { available: false },
-      kiosk: { available: false },
+      kiosk: { available: false, voiceSupport: false },
       steps: { hasSteps: false, ramp: false },
       wheelchair: { accessible: 'yes' },
       toilet: { available: true, accessible: false },
@@ -4647,7 +4647,7 @@ export const sampleLocations: AccessibilityLocation[] = [
     address: '서울특별시 동대문구 왕산로 4',
     accessibility: {
       elevator: { available: false },
-      kiosk: { available: false },
+      kiosk: { available: false, voiceSupport: false },
       steps: { hasSteps: false, ramp: false },
       wheelchair: { accessible: 'yes' },
       toilet: { available: true, accessible: false },
@@ -4664,7 +4664,7 @@ export const sampleLocations: AccessibilityLocation[] = [
     address: '서울특별시 동대문구 답십리로 86',
     accessibility: {
       elevator: { available: false },
-      kiosk: { available: false },
+      kiosk: { available: false, voiceSupport: false },
       steps: { hasSteps: false, ramp: false },
       wheelchair: { accessible: 'yes' },
       toilet: { available: true, accessible: false },
@@ -4681,7 +4681,7 @@ export const sampleLocations: AccessibilityLocation[] = [
     address: '서울특별시 동대문구 회기로 85',
     accessibility: {
       elevator: { available: false },
-      kiosk: { available: false },
+      kiosk: { available: false, voiceSupport: false },
       steps: { hasSteps: true, maxHeightCm: 6, ramp: false },
       wheelchair: { accessible: 'limited' },
       toilet: { available: true, accessible: false },
@@ -4698,7 +4698,7 @@ export const sampleLocations: AccessibilityLocation[] = [
     address: '서울특별시 동대문구 천호대로 58',
     accessibility: {
       elevator: { available: false },
-      kiosk: { available: false },
+      kiosk: { available: false, voiceSupport: false },
       steps: { hasSteps: true, maxHeightCm: 5, ramp: true },
       wheelchair: { accessible: 'limited' },
       toilet: { available: true, accessible: false },
@@ -4715,7 +4715,7 @@ export const sampleLocations: AccessibilityLocation[] = [
     address: '서울특별시 성북구 성북로 116',
     accessibility: {
       elevator: { available: false },
-      kiosk: { available: false },
+      kiosk: { available: false, voiceSupport: false },
       steps: { hasSteps: true, maxHeightCm: 15, ramp: false, note: '전통 한옥 구조, 계단 다수' },
       wheelchair: { accessible: 'no' },
       toilet: { available: true, accessible: false },
@@ -4732,7 +4732,7 @@ export const sampleLocations: AccessibilityLocation[] = [
     address: '서울특별시 성북구 솔샘로 50',
     accessibility: {
       elevator: { available: false },
-      kiosk: { available: false },
+      kiosk: { available: false, voiceSupport: false },
       steps: { hasSteps: false, ramp: false },
       wheelchair: { accessible: 'yes' },
       toilet: { available: true, accessible: false },
@@ -4749,7 +4749,7 @@ export const sampleLocations: AccessibilityLocation[] = [
     address: '서울특별시 성북구 정릉로 261',
     accessibility: {
       elevator: { available: false },
-      kiosk: { available: false },
+      kiosk: { available: false, voiceSupport: false },
       steps: { hasSteps: false, ramp: false },
       wheelchair: { accessible: 'yes' },
       toilet: { available: true, accessible: false },
@@ -4766,7 +4766,7 @@ export const sampleLocations: AccessibilityLocation[] = [
     address: '서울특별시 성북구 종암로 63',
     accessibility: {
       elevator: { available: false },
-      kiosk: { available: false },
+      kiosk: { available: false, voiceSupport: false },
       steps: { hasSteps: true, maxHeightCm: 8, ramp: false },
       wheelchair: { accessible: 'no' },
       toilet: { available: true, accessible: false },
@@ -4783,7 +4783,7 @@ export const sampleLocations: AccessibilityLocation[] = [
     address: '서울특별시 종로구 신문로2가 7-22',
     accessibility: {
       elevator: { available: false },
-      kiosk: { available: false },
+      kiosk: { available: false, voiceSupport: false },
       steps: { hasSteps: false, ramp: false },
       wheelchair: { accessible: 'yes' },
       toilet: { available: true, accessible: false },
@@ -4800,7 +4800,7 @@ export const sampleLocations: AccessibilityLocation[] = [
     address: '서울특별시 종로구 청계천로 1',
     accessibility: {
       elevator: { available: false },
-      kiosk: { available: false },
+      kiosk: { available: false, voiceSupport: false },
       steps: { hasSteps: false, ramp: true },
       wheelchair: { accessible: 'yes' },
       toilet: { available: true, accessible: true },
@@ -4817,7 +4817,7 @@ export const sampleLocations: AccessibilityLocation[] = [
     address: '서울특별시 종로구 낙원동 284',
     accessibility: {
       elevator: { available: false },
-      kiosk: { available: false },
+      kiosk: { available: false, voiceSupport: false },
       steps: { hasSteps: true, maxHeightCm: 10, ramp: false },
       wheelchair: { accessible: 'no' },
       toilet: { available: true, accessible: false },
@@ -4834,7 +4834,7 @@ export const sampleLocations: AccessibilityLocation[] = [
     address: '서울특별시 종로구 자하문로 15길 18',
     accessibility: {
       elevator: { available: false },
-      kiosk: { available: false },
+      kiosk: { available: false, voiceSupport: false },
       steps: { hasSteps: false, ramp: false },
       wheelchair: { accessible: 'yes', note: '시장 내 단차 일부 존재하나 도시락 픽업 구역 평탄' },
       toilet: { available: true, accessible: false },
@@ -4851,7 +4851,7 @@ export const sampleLocations: AccessibilityLocation[] = [
     address: '서울특별시 종로구 창경궁로 88',
     accessibility: {
       elevator: { available: false },
-      kiosk: { available: false },
+      kiosk: { available: false, voiceSupport: false },
       steps: { hasSteps: false, ramp: false, note: '시장 내 평탄로 이동 가능' },
       wheelchair: { accessible: 'limited', note: '통로 혼잡, 피크타임 이동 어려움' },
       toilet: { available: true, accessible: false },
@@ -4868,7 +4868,7 @@ export const sampleLocations: AccessibilityLocation[] = [
     address: '서울특별시 종로구 종로 99',
     accessibility: {
       elevator: { available: false },
-      kiosk: { available: false },
+      kiosk: { available: false, voiceSupport: false },
       steps: { hasSteps: false, ramp: false },
       wheelchair: { accessible: 'yes' },
       toilet: { available: true, accessible: false },
@@ -4885,7 +4885,7 @@ export const sampleLocations: AccessibilityLocation[] = [
     address: '서울특별시 종로구 종로 314',
     accessibility: {
       elevator: { available: false },
-      kiosk: { available: false },
+      kiosk: { available: false, voiceSupport: false },
       steps: { hasSteps: true, maxHeightCm: 7, ramp: false },
       wheelchair: { accessible: 'limited' },
       toilet: { available: true, accessible: false },
@@ -4902,7 +4902,7 @@ export const sampleLocations: AccessibilityLocation[] = [
     address: '서울특별시 중구 세종대로 136 B2',
     accessibility: {
       elevator: { available: true, floors: 'B2~24F' },
-      kiosk: { available: false },
+      kiosk: { available: false, voiceSupport: false },
       steps: { hasSteps: false, ramp: true },
       wheelchair: { accessible: 'yes' },
       toilet: { available: true, accessible: true },
@@ -4919,10 +4919,10 @@ export const sampleLocations: AccessibilityLocation[] = [
     address: '서울특별시 중구 충무로 2가 47',
     accessibility: {
       elevator: { available: false },
-      kiosk: { available: false },
+      kiosk: { available: false, voiceSupport: false },
       steps: { hasSteps: false, ramp: false },
       wheelchair: { accessible: 'yes' },
-      toilet: { available: false },
+      toilet: { available: false, accessible: false },
     },
     lastUpdated: '2024-09-25',
     source: 'user',
@@ -4936,7 +4936,7 @@ export const sampleLocations: AccessibilityLocation[] = [
     address: '서울특별시 중구 을지로 12길 10',
     accessibility: {
       elevator: { available: false },
-      kiosk: { available: false },
+      kiosk: { available: false, voiceSupport: false },
       steps: { hasSteps: false, ramp: false, note: '야외 테이블 주로 이용' },
       wheelchair: { accessible: 'yes' },
       toilet: { available: true, accessible: false },
@@ -4953,7 +4953,7 @@ export const sampleLocations: AccessibilityLocation[] = [
     address: '서울특별시 용산구 남산공원길 105',
     accessibility: {
       elevator: { available: true, floors: '타워 1~6F', note: '케이블카 또는 순환버스 이용 필요' },
-      kiosk: { available: false },
+      kiosk: { available: false, voiceSupport: false },
       steps: { hasSteps: false, ramp: true },
       wheelchair: { accessible: 'limited', note: '타워 접근 시 케이블카 탑승 필요' },
       toilet: { available: true, accessible: true },
@@ -4970,7 +4970,7 @@ export const sampleLocations: AccessibilityLocation[] = [
     address: '서울특별시 성동구 행당로 64',
     accessibility: {
       elevator: { available: false },
-      kiosk: { available: false },
+      kiosk: { available: false, voiceSupport: false },
       steps: { hasSteps: false, ramp: false },
       wheelchair: { accessible: 'yes' },
       toilet: { available: true, accessible: false },
@@ -4987,7 +4987,7 @@ export const sampleLocations: AccessibilityLocation[] = [
     address: '서울특별시 은평구 응암로 1',
     accessibility: {
       elevator: { available: false },
-      kiosk: { available: false },
+      kiosk: { available: false, voiceSupport: false },
       steps: { hasSteps: false, ramp: false },
       wheelchair: { accessible: 'yes' },
       toilet: { available: true, accessible: false },
@@ -5004,7 +5004,7 @@ export const sampleLocations: AccessibilityLocation[] = [
     address: '서울특별시 은평구 진관로 80',
     accessibility: {
       elevator: { available: false },
-      kiosk: { available: false },
+      kiosk: { available: false, voiceSupport: false },
       steps: { hasSteps: false, ramp: false },
       wheelchair: { accessible: 'yes' },
       toilet: { available: true, accessible: false },
@@ -5038,7 +5038,7 @@ export const sampleLocations: AccessibilityLocation[] = [
     address: '서울특별시 양천구 신정로 124',
     accessibility: {
       elevator: { available: false },
-      kiosk: { available: false },
+      kiosk: { available: false, voiceSupport: false },
       steps: { hasSteps: false, ramp: false },
       wheelchair: { accessible: 'yes' },
       toilet: { available: true, accessible: false },
@@ -5055,7 +5055,7 @@ export const sampleLocations: AccessibilityLocation[] = [
     address: '서울특별시 강서구 마곡중앙로 136',
     accessibility: {
       elevator: { available: false },
-      kiosk: { available: false },
+      kiosk: { available: false, voiceSupport: false },
       steps: { hasSteps: false, ramp: true },
       wheelchair: { accessible: 'yes' },
       toilet: { available: true, accessible: false },
@@ -5072,7 +5072,7 @@ export const sampleLocations: AccessibilityLocation[] = [
     address: '서울특별시 강서구 화곡로 273',
     accessibility: {
       elevator: { available: false },
-      kiosk: { available: false },
+      kiosk: { available: false, voiceSupport: false },
       steps: { hasSteps: true, maxHeightCm: 6, ramp: false },
       wheelchair: { accessible: 'limited' },
       toilet: { available: true, accessible: false },
@@ -5106,7 +5106,7 @@ export const sampleLocations: AccessibilityLocation[] = [
     address: '서울특별시 강서구 등촌로 128',
     accessibility: {
       elevator: { available: false },
-      kiosk: { available: false },
+      kiosk: { available: false, voiceSupport: false },
       steps: { hasSteps: false, ramp: false },
       wheelchair: { accessible: 'yes' },
       toilet: { available: true, accessible: false },
@@ -5140,7 +5140,7 @@ export const sampleLocations: AccessibilityLocation[] = [
     address: '서울특별시 중랑구 망우로 377',
     accessibility: {
       elevator: { available: false },
-      kiosk: { available: false },
+      kiosk: { available: false, voiceSupport: false },
       steps: { hasSteps: false, ramp: false },
       wheelchair: { accessible: 'yes' },
       toilet: { available: true, accessible: false },
@@ -5159,7 +5159,7 @@ export const sampleLocations: AccessibilityLocation[] = [
     address: '서울특별시 중구 명동8나길 7',
     accessibility: {
       elevator: { available: true, floors: 'B1~3F' },
-      kiosk: { available: false },
+      kiosk: { available: false, voiceSupport: false },
       steps: { hasSteps: false, ramp: true },
       wheelchair: { accessible: 'yes', note: '넓은 통로, 전 층 엘리베이터 이용 가능' },
       toilet: { available: true, accessible: true },
@@ -5176,7 +5176,7 @@ export const sampleLocations: AccessibilityLocation[] = [
     address: '서울특별시 강남구 강남대로 438',
     accessibility: {
       elevator: { available: true, floors: '1F~5F' },
-      kiosk: { available: false },
+      kiosk: { available: false, voiceSupport: false },
       steps: { hasSteps: false, ramp: true },
       wheelchair: { accessible: 'yes' },
       toilet: { available: true, accessible: true },
@@ -5193,10 +5193,10 @@ export const sampleLocations: AccessibilityLocation[] = [
     address: '서울특별시 성동구 성수이로 78',
     accessibility: {
       elevator: { available: false },
-      kiosk: { available: false },
+      kiosk: { available: false, voiceSupport: false },
       steps: { hasSteps: false, ramp: false },
       wheelchair: { accessible: 'yes', note: '평지 출입구, 통로 충분' },
-      toilet: { available: false },
+      toilet: { available: false, accessible: false },
     },
     lastUpdated: '2024-08-05',
     source: 'user',
@@ -5210,10 +5210,10 @@ export const sampleLocations: AccessibilityLocation[] = [
     address: '서울특별시 종로구 종로 51',
     accessibility: {
       elevator: { available: false },
-      kiosk: { available: false },
+      kiosk: { available: false, voiceSupport: false },
       steps: { hasSteps: true, maxHeightCm: 6, ramp: true, note: '입구 단차 6cm, 경사판 비치' },
       wheelchair: { accessible: 'limited' },
-      toilet: { available: false },
+      toilet: { available: false, accessible: false },
     },
     lastUpdated: '2024-07-22',
     source: 'user',
@@ -5227,7 +5227,7 @@ export const sampleLocations: AccessibilityLocation[] = [
     address: '서울특별시 동작구 노들로 674',
     accessibility: {
       elevator: { available: true, floors: 'B1~3F', note: '신관 엘리베이터 운행' },
-      kiosk: { available: false },
+      kiosk: { available: false, voiceSupport: false },
       steps: { hasSteps: true, maxHeightCm: 3, ramp: true, note: '구관 일부 단차 있음, 신관은 무장애' },
       wheelchair: { accessible: 'limited', note: '신관 접근 가능, 구관은 어려움' },
       toilet: { available: true, accessible: true },
