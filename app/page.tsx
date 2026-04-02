@@ -3,7 +3,7 @@
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import { useState, useMemo, useCallback } from 'react';
-import { AccessibilityLocation, Filters, FilterKey } from '@/lib/types';
+import { AccessibilityLocation, Filters, FilterKey, LocationType } from '@/lib/types';
 import { sampleLocations } from '@/lib/sampleData';
 import FilterBar from '@/components/FilterBar';
 import LocationPanel from '@/components/LocationPanel';
@@ -29,9 +29,11 @@ const DEFAULT_FILTERS: Filters = {
 function applyFilters(
   locations: AccessibilityLocation[],
   filters: Filters,
-  search: string
+  search: string,
+  typeFilter: LocationType | null
 ): AccessibilityLocation[] {
   return locations.filter((loc) => {
+    if (typeFilter && loc.type !== typeFilter) return false;
     if (search) {
       const q = search.toLowerCase();
       if (!loc.name.toLowerCase().includes(q) && !loc.address.toLowerCase().includes(q)) return false;
@@ -51,10 +53,11 @@ export default function Home() {
   const [search, setSearch] = useState('');
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [showList, setShowList] = useState(false);
+  const [typeFilter, setTypeFilter] = useState<LocationType | null>(null);
 
   const filteredLocations = useMemo(
-    () => applyFilters(sampleLocations, filters, search),
-    [filters, search]
+    () => applyFilters(sampleLocations, filters, search, typeFilter),
+    [filters, search, typeFilter]
   );
 
   const selectedLocation = useMemo(
@@ -120,6 +123,8 @@ export default function Home() {
         filters={filters}
         onChange={handleFilterChange}
         resultCount={filteredLocations.length}
+        typeFilter={typeFilter}
+        onTypeFilter={setTypeFilter}
       />
 
       {/* 메인 콘텐츠 */}
