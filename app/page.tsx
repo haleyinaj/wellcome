@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { useState, useMemo, useCallback, useEffect } from 'react';
 import { AccessibilityLocation, Filters, FilterKey, LocationType } from '@/lib/types';
 import { sampleLocations } from '@/lib/sampleData';
-import { fetchKakaoPlaces } from '@/lib/kakao';
+import { fetchKakaoPlaces, fetchKakaoByQuery } from '@/lib/kakao';
 import FilterBar from '@/components/FilterBar';
 import LocationPanel from '@/components/LocationPanel';
 import { Search, X, MapPin } from 'lucide-react';
@@ -60,7 +60,20 @@ export default function Home() {
   const [typeFilter, setTypeFilter] = useState<LocationType | null>(null);
   const [mapCenter, setMapCenter] = useState<{ lat: number; lng: number }>({ lat: 37.5665, lng: 126.978 });
   const [kakaoPlaces, setKakaoPlaces] = useState<AccessibilityLocation[]>([]);
+  const [kakaoSearchPlaces, setKakaoSearchPlaces] = useState<AccessibilityLocation[]>([]);
   const [kakaoLoading, setKakaoLoading] = useState(false);
+
+  // 검색어 입력 시 카카오 키워드 검색 (300ms 디바운스)
+  useEffect(() => {
+    if (!search || search.length < 2) {
+      setKakaoSearchPlaces([]);
+      return;
+    }
+    const timer = setTimeout(() => {
+      fetchKakaoByQuery(search, mapCenter.lat, mapCenter.lng).then(setKakaoSearchPlaces);
+    }, 300);
+    return () => clearTimeout(timer);
+  }, [search, mapCenter]);
 
   // 카카오 타입 선택 시 주변 장소 fetch
   useEffect(() => {
@@ -80,9 +93,18 @@ export default function Home() {
   }, [typeFilter, mapCenter]);
 
   const allLocations = useMemo(() => {
+    if (search.length >= 2) {
+      // 검색 중: sampleData 결과 + 카카오 검색 결과 합산
+      const sampleMatched = sampleLocations.filter((loc) => {
+        const q = search.toLowerCase();
+        return loc.name.toLowerCase().includes(q) || loc.address.toLowerCase().includes(q);
+      });
+      const kakaoIds = new Set(kakaoSearchPlaces.map((p) => p.id));
+      return [...sampleMatched.filter((l) => !kakaoIds.has(l.id)), ...kakaoSearchPlaces];
+    }
     if (typeFilter && KAKAO_TYPES.includes(typeFilter)) return kakaoPlaces;
     return sampleLocations;
-  }, [typeFilter, kakaoPlaces]);
+  }, [search, typeFilter, kakaoPlaces, kakaoSearchPlaces]);
 
   const filteredLocations = useMemo(
     () => applyFilters(allLocations, filters, search, typeFilter),

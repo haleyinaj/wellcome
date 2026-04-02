@@ -62,3 +62,16 @@ export async function fetchKakaoPlaces(
   const data = await res.json();
   return (data.documents ?? []).map((p: KakaoPlace) => kakaoToLocation(p, type));
 }
+
+export async function fetchKakaoByQuery(
+  query: string,
+  lat: number,
+  lng: number
+): Promise<AccessibilityLocation[]> {
+  const res = await fetch(
+    `/api/places?query=${encodeURIComponent(query)}&lat=${lat}&lng=${lng}&radius=5000`
+  );
+  if (!res.ok) return [];
+  const data = await res.json();
+  return (data.documents ?? []).map((p: KakaoPlace) => kakaoToLocation(p));
+}
