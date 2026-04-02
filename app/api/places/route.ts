@@ -37,7 +37,8 @@ export async function GET(request: NextRequest) {
   });
 
   if (!res.ok) {
-    return NextResponse.json({ error: 'Kakao API error' }, { status: res.status });
+    const errBody = await res.text();
+    return NextResponse.json({ error: 'Kakao API error', status: res.status, detail: errBody }, { status: res.status });
   }
 
   const data = await res.json();
